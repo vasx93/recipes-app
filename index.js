@@ -20,10 +20,9 @@ app.use('/api/categories', categoryRouter);
 app.use('/api/recipes', recipesRouter);
 
 // Atlas connection
-const mongo_test =
-	'mongodb+srv://test-user:test1234@cluster0.fd7gw.mongodb.net/recipes-app?retryWrites=true&w=majority';
+
 mongoose
-	.connect(mongo_test, {
+	.connect(process.env.DB_TEST, {
 		useCreateIndex: true,
 		useNewUrlParser: true,
 		useUnifiedTopology: true,

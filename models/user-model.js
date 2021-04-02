@@ -76,8 +76,8 @@ userSchema.statics.loginUser = async (email, password) => {
 userSchema.methods.generateToken = async function () {
 	const user = this;
 
-	const token = jwt.sign({ _id: user._id.toString() }, process.env.JWT_SECRET, {
-		expiresIn: process.env.JWT_EXPIRES,
+	const token = jwt.sign({ _id: user._id.toString() }, 'mojtajnikljucjeovo', {
+		expiresIn: '90 days',
 	});
 
 	return token;
@@ -85,7 +85,7 @@ userSchema.methods.generateToken = async function () {
 
 // Decode JWT
 userSchema.statics.validateToken = async function (token) {
-	const decoded = jwt.verify(token, process.env.JWT_SECRET);
+	const decoded = jwt.verify(token, 'mojtajnikljucjeovo');
 
 	const user = await User.findOne({ _id: decoded._id });
 	if (!user) {

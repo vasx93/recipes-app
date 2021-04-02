@@ -5,8 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
-		"dev": "nodemon index.js",
-		"seed": "node ./utils/seed.js"
+		"dev": "nodemon index.js"
 	},
 	"author": "Vasko Raketic",
 	"license": "ISC",
