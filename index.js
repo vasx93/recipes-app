@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 
@@ -11,6 +12,7 @@ const recipesRouter = require('./routes/recipe-router');
 const app = express();
 
 // Middleware
+app.use(express.static(path.join(__dirname, './public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -18,6 +20,8 @@ app.use(express.json());
 app.use('/api/users', userRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/recipes', recipesRouter);
+
+app.use('*', (req, res) => res.sendFile(path.join(__dirname, './index.html')));
 
 // Atlas connection
 
