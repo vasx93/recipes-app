@@ -21,7 +21,9 @@ app.use('/api/users', userRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/recipes', recipesRouter);
 
-app.use('*', (req, res) => res.sendFile(path.join(__dirname, './index.html')));
+app.use('*', (req, res) =>
+	res.sendFile(path.join(__dirname, './public/index.html'))
+);
 
 // Atlas connection
 
