@@ -34,7 +34,6 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 			trim: true,
-			default: 'John',
 			maxlength: 20,
 		},
 
@@ -42,7 +41,6 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 			trim: true,
-			default: 'Doe',
 			maxlength: 30,
 		},
 
